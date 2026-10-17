@@ -2,9 +2,11 @@
 
 `codebase-design` fixes the words you use to design a module: **module**, **interface**, **depth**, **seam**, **adapter**, **leverage**, **locality**. It defines each one precisely, bans the loose substitutes ("component", "service", "API", "boundary"), and states the handful of principles that follow from them.
 
-It is a reference, not a process. It runs no loop, produces no artifact, and never stops to ask you a question. Every other skill that touches design uses its vocabulary. On its own, it gives you the words and stops. Know this before you invoke it. If you point a [session](https://www.aihero.dev/ai-coding-dictionary/session) at a skill with no process and no stopping rule and say "go", the agent invents a process. The questions below show what that looks like.
+Its core is shared vocabulary rather than an implementation loop. In this UML-enabled fork, consequential relationships can also bring in `/uml` for inspected views and concrete clarification questions. It retains its module language and decision responsibility while UML owns diagram handling. If you point a [session](https://www.aihero.dev/ai-coding-dictionary/session) at it and say "go", it still needs a concrete design question rather than an invented build process.
 
 ## When to reach for it
+
+In this UML-enabled fork, the skill uses `/uml` to examine consequential interfaces, dependencies, behavior, and structure, including apparent agreement. It reuses the discussion's diagrams and uncertainties, tests the inspected views and assumptions, and keeps this skill's module vocabulary and decision responsibility. UML handles diagram artifacts according to recorded agreement.
 
 Type `/codebase-design`, or the agent reaches for it automatically when a design task fits.
 

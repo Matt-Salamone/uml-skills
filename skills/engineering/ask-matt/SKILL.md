@@ -61,10 +61,11 @@ Not feature work, just upkeep.
 
 ## Vocabulary underneath
 
-Two model-invoked references that run *beneath* the other skills, each the single source of truth for its vocabulary. Reach for them directly when the **words**, not the process, are the problem; or let the skills above pull them in.
+Model-invoked disciplines that run *beneath* the other skills. Reach for them directly when language, module shape, or a visual model needs attention; or let the skills above pull them in.
 
 - **`/domain-modeling`**: sharpen the project's *domain* language: challenge a fuzzy term, resolve an overloaded word ("account" doing three jobs), record a hard-to-reverse decision as an ADR. It's the active discipline `/grill-with-docs` drives to keep `GLOSSARY.md` a clean glossary.
 - **`/codebase-design`** is the deep-module vocabulary (module, interface, depth, seam, adapter, leverage, locality) for designing a module's *shape*: a lot of behaviour behind a small interface at a clean seam. `/tdd` and `/improve-codebase-architecture` both speak it.
+- **`/uml`** makes shared understanding testable with inspected visual models of domain relationships, behavior, and software structure. `/grilling`, `/domain-modeling`, `/codebase-design`, and `/to-spec` invoke it proactively, including when everyone appears to agree; `/wayfinder` and `/grill-with-docs` inherit it through their discussion skills. The caller keeps the conversation and decision record. `/to-spec` pauses finalization for targeted clarification when a diagram exposes an unresolved assumption. Reach for `/uml` directly to draw, refine, accept, or maintain views.
 
 ## Phase boundaries
 
@@ -94,4 +95,4 @@ Off the main flow entirely.
 
 ## Precondition
 
-**`/setup-matt-pocock-skills`**: run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work.
+**`/setup-matt-pocock-skills`**: run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work. It also offers optional local UML rendering configuration; UML checks availability independently on every invocation.

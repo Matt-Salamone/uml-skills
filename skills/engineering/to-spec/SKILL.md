@@ -1,10 +1,10 @@
 ---
 name: to-spec
-description: "Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of what you've already discussed."
+description: "Synthesize the conversation into a spec and publish it to the issue tracker, with targeted clarification of unresolved UML assumptions."
 disable-model-invocation: true
 ---
 
-This skill takes the current conversation context and codebase understanding and produces a spec. Do NOT interview the user; just synthesize what you already know.
+This skill takes the current conversation context and codebase understanding and produces a spec. Synthesize what you already know without a fresh interview, except for the targeted UML clarification below. Preserve the existing seam confirmation step.
 
 The issue tracker and triage label vocabulary should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
 
@@ -15,6 +15,8 @@ The issue tracker and triage label vocabulary should have been provided to you. 
 2. Sketch out the seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
 
 Check with the user that these seams match their expectations.
+
+When synthesis establishes meaningful relationships, behavior, or structure relevant to a decision, including apparent agreement, call the Skill tool with "uml". Supply the current decision, relevant glossary and existing diagrams, and known uncertainties, reusing context from earlier discussion skills. Use its inspected previews, assumptions, and suggested questions. If a diagram exposes an unresolved assumption, pause finalization, show the smallest relevant view, identify the specific assumption, and obtain the human's clarification before treating it as settled. Preserve existing decisions elsewhere. Keep conversation and spec/decision recording here; pass recorded agreement back to UML for artifact handling.
 
 3. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
 

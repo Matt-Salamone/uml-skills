@@ -1,0 +1,15 @@
+@startuml
+' Supporting document: ../references/examples.md#software-structure-where-does-the-seam-live
+' Scope: compile-time module dependencies. Designation: proposed-design, teaching only.
+!pragma layout smetana
+title Initial hypothesis: callers know the storage adapter
+component Checkout
+component ReservationStore
+component PostgresAdapter
+Checkout ..> ReservationStore : uses
+Checkout ..> PostgresAdapter : configures / uses
+ReservationStore ..> PostgresAdapter : uses
+note bottom of Checkout
+  Must callers know storage details?
+end note
+@enduml

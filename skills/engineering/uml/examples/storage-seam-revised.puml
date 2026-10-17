@@ -1,0 +1,16 @@
+@startuml
+' Supporting document: ../references/examples.md#software-structure-where-does-the-seam-live
+' Scope: compile-time interface dependencies; deployment excluded. Designation: proposed-design, teaching only.
+!pragma layout smetana
+title Revision: one interface, two adapters
+component Checkout
+interface ReservationStore
+component PostgresAdapter
+component InMemoryAdapter
+Checkout ..> ReservationStore : uses
+PostgresAdapter ..|> ReservationStore
+InMemoryAdapter ..|> ReservationStore
+note top of ReservationStore
+  Seam: caller learns this interface.
+end note
+@enduml

@@ -7,6 +7,8 @@ description: Shared vocabulary for designing deep modules. Use when the user wan
 
 Design **deep modules**: a lot of behaviour behind a small interface, placed at a clean seam, testable through that interface. Use this language and these principles wherever code is being designed or restructured. The aim is leverage for callers, locality for maintainers, and testability for everyone.
 
+When discussion establishes meaningful interfaces, dependencies, behavior, or structure relevant to a decision, including apparent agreement, call the Skill tool with "uml" to examine those relationships. Supply the current decision, relevant glossary and existing diagrams, and known uncertainties, reusing the discussion's context. Use its inspected previews, assumptions, and suggested questions while retaining this skill's vocabulary, conversation, and decision responsibility. Pass recorded agreement back to UML for artifact handling.
+
 ## Glossary
 
 Use these terms exactly: don't substitute "component," "service," "API," or "boundary." Consistent language is the whole point.

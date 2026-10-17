@@ -1,2 +1,7 @@
 node_modules
 .claude
+
+# Local planning material. Public domain definitions live in GLOSSARY.md.
+/.scratch/
+/CONTEXT.md
+/spec.md

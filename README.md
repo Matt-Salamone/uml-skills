@@ -10,6 +10,23 @@
 
 # Skills For Real Engineers
 
+## UML-enabled fork
+
+This is a UML-enabled fork of [mattpocock/skills](https://github.com/mattpocock/skills) at the fixed upstream commit [`49dd158d1076134a641b33efb035946536778336`](https://github.com/mattpocock/skills/commit/49dd158d1076134a641b33efb035946536778336). Upstream names, buckets, invocation and composition conventions, supported installation routes, setup functionality, and MIT notices are retained. The original introduction and install instructions below describe upstream; those commands install upstream, not this fork.
+
+Intentional additions and differences:
+
+- Shared [`uml`](./skills/engineering/uml/SKILL.md) guidance makes relationships, behavior, and structure testable with authoritative PlantUML source and inspected SVG previews, plus PNG when needed. It assumes a UML-trained audience and supports individuals and teams.
+- Grilling, domain-modeling, codebase-design, and to-spec invoke UML proactively and reuse diagrams and uncertainties across the discussion. They retain conversation and decision ownership. Wayfinder and grill-with-docs inherit the behavior through their existing composition.
+- To-spec retains synthesis and seam confirmation, with a targeted clarification pause when a diagram exposes an unresolved assumption.
+- Setup offers optional local rendering configuration. UML checks availability every time, preserves unrendered source on failure, and defers only decisions requiring a visual preview. External rendering needs environment authorization.
+- Accepted diagram versions stay alongside supporting documents with scope, designation, and reciprocal source/preview links. Teaching examples and a reproducible local CLI baseline live in the UML skill's references.
+- Upstream release automation runs only in the upstream repository. Pushing source to this fork does not opt in to automatic version PRs or release tags.
+
+Use `/uml` directly, or let the callers introduce views as decisions take shape, including apparent agreement. For local tooling, see the [rendering baseline and recovery procedure](./skills/engineering/uml/references/rendering.md); run `/setup-matt-pocock-skills` to record a chosen local renderer in a project's `docs/agents/uml-rendering.md`. Setup is optional for UML. [Worked examples](./skills/engineering/uml/references/examples.md) teach selection and refinement. UML's benefit remains a working assumption to revisit in actual use, not a demonstrated effectiveness claim.
+
+Later upstream updates are best effort, without a promised cadence, coverage, or compatibility guarantee. Advancing the baseline requires an explicit decision and reconciliation of these differences. Upstream copyright and license remain in [LICENSE](./LICENSE).
+
 [![skills.sh](https://skills.sh/b/mattpocock/skills)](https://skills.sh/mattpocock/skills)
 
 My agent skills that I use every day to do real engineering - not vibe coding.
@@ -103,6 +120,7 @@ In your agent, run it once per repo. It will:
 - Ask you which issue tracker you want to use (GitHub, GitLab, local files, or anything else you describe)
 - Ask you what labels you apply to tickets when you triage them (`/triage` uses labels)
 - Ask you where you want to save any docs we create
+- Offer local UML rendering configuration in this fork
 
 ### 3. Bam - you're ready to go.
 
@@ -229,6 +247,8 @@ Skills I use daily for code work.
 - **[retro](./skills/engineering/retro/SKILL.md)**: Suggest improvements to the coding agent's environment (navigation, automated checks, coding standards, steering files, tooling) after a session, most severe first.
 
 **Model-invoked**
+
+- **[uml](./skills/engineering/uml/SKILL.md)**: Make shared understanding testable with proactively introduced UML views, inspected local previews, and accepted-diagram maintenance.
 
 - **[prototype](./skills/engineering/prototype/SKILL.md)**: Build a throwaway prototype to answer a design question, either a single shareable HTML file for state/logic questions, or several radically different UI variations toggleable from one route.
 - **[diagnosing-bugs](./skills/engineering/diagnosing-bugs/SKILL.md)**: Disciplined diagnosis loop for hard bugs and performance regressions: build a feedback loop that goes red on this bug → minimise → hypothesise → instrument → fix → regression-test.

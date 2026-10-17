@@ -6,6 +6,8 @@ It is the **active** discipline, not the passive one. Any skill can read `GLOSSA
 
 ## When to reach for it
 
+In this UML-enabled fork, the skill uses `/uml` to check consequential concepts and relationships, behavior, or structure, including apparent agreement. It reuses the discussion's diagrams and uncertainties, brings inspected previews and concrete questions into the scenarios, and keeps ownership of the conversation, glossary, and decisions. UML handles diagram artifacts according to recorded agreement.
+
 Type `/domain-modeling`, or the agent reaches for it automatically when a task fits. In practice, automatic invocation is the weakest part of the skill. When `grill-with-docs` or `wayfinder` say to load it, [models](https://www.aihero.dev/ai-coding-dictionary/model) often load `grilling` and skip this one. If a [grilling](https://www.aihero.dev/ai-coding-dictionary/grilling) session runs and `GLOSSARY.md` is unchanged at the end, that is what happened. Invoke it by name alongside the other skill.
 
 Reach for it when the *words* are the problem:
@@ -47,7 +49,7 @@ The `GLOSSARY.md` rule matters most, because it is the one that breaks in practi
 
 When you state how something works, the skill checks the code and points out any contradiction. *"Your code cancels entire Orders, but you just said partial cancellation is possible, which is right?"* The skill makes the language and the code agree, out loud, before it changes either.
 
-It cross-references **code** and the committed `GLOSSARY.md` and ADRs, and nothing else. It does not search your issue tracker. If your team argued out a naming collision and settled it in a closed issue months ago, the skill raises it again as if it were new. There is [an open request](https://github.com/mattpocock/skills/issues/717) to fix this. Until then, the workaround is to put the instruction in your own `docs/agents/domain.md`, which the skills already read.
+It cross-references **code**, the committed `GLOSSARY.md` and ADRs, and the discussion's diagrams. It does not search your issue tracker. If your team argued out a naming collision and settled it in a closed issue months ago, the skill can raise it again as if it were new. There is [an open request](https://github.com/mattpocock/skills/issues/717) to fix this. Until then, the workaround is to put the instruction in your own `docs/agents/domain.md`, which the skills already read.
 
 ## Common questions
 

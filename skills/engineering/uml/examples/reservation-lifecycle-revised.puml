@@ -1,0 +1,14 @@
+@startuml
+' Supporting document: ../references/examples.md#interaction-and-lifecycle-late-payment-authorization
+' Scope: Held/Expired/Confirmed transitions; payment retries excluded. Designation: proposed-design, teaching only.
+!pragma layout smetana
+title Revision: expiry prevents confirmation
+[*] --> Held
+Held --> Expired : expire
+Held --> Confirmed : confirmIfHeld(paymentAuthorized) [still Held]
+Expired --> Expired : confirmIfHeld(paymentAuthorized) / refuse
+note bottom of Expired
+  Refusal leaves allocation expired.
+  Checkout voids the late authorization.
+end note
+@enduml

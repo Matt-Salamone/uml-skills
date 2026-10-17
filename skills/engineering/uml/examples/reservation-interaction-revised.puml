@@ -1,0 +1,21 @@
+@startuml
+' Supporting document: ../references/examples.md#interaction-and-lifecycle-late-payment-authorization
+' Scope: one authorization response, atomic confirmation, and late-authorization remedy. Designation: proposed-design, teaching only.
+title Revision: atomic confirmation can refuse late payment
+participant Checkout
+participant PaymentGateway
+participant Reservation
+Checkout -> PaymentGateway : authorize()
+PaymentGateway --> Checkout : paymentAuthorized
+Checkout -> Reservation : confirmIfHeld(paymentAuthorized)
+note right of Reservation
+  Atomic transition only while Held.
+  Expiry can win before this request.
+end note
+alt confirmation succeeds (Held -> Confirmed)
+  Reservation --> Checkout : confirmed
+else confirmation refused (Expired stays Expired)
+  Reservation --> Checkout : expired
+  Checkout -> PaymentGateway : voidAuthorization()
+end
+@enduml

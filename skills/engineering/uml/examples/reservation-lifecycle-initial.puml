@@ -1,0 +1,13 @@
+@startuml
+' Supporting document: ../references/examples.md#interaction-and-lifecycle-late-payment-authorization
+' Scope: Held, Expired, Confirmed lifecycle hypothesis. Designation: proposed-design, teaching only.
+!pragma layout smetana
+title Initial hypothesis: expiry can be reversed
+[*] --> Held
+Held --> Expired : expire
+Held --> Confirmed : paymentAuthorized
+Expired --> Confirmed : paymentAuthorized
+note bottom of Expired
+  Assumption: allocation can be revived.
+end note
+@enduml

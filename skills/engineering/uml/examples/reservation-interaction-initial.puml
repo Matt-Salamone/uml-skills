@@ -1,0 +1,16 @@
+@startuml
+' Supporting document: ../references/examples.md#interaction-and-lifecycle-late-payment-authorization
+' Scope: expiry during one payment authorization request. Designation: proposed-design, teaching only.
+title Initial hypothesis: authorization always confirms
+participant Checkout
+participant PaymentGateway
+participant Reservation
+Checkout -> PaymentGateway : authorize()
+Reservation -> Reservation : expire()
+PaymentGateway --> Checkout : paymentAuthorized
+Checkout -> Reservation : confirm()
+Reservation --> Checkout : confirmed
+note over Checkout, Reservation
+  Assumption: late payment revives an expired Reservation.
+end note
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+' Supporting document: ../references/examples.md#domain-relationships-who-owns-a-product
+' Scope: draft Orders, owned lines, shared catalog identity. Designation: proposed-design, teaching only.
+!pragma layout smetana
+title Revision: Order owns lines, Product is shared
+hide empty members
+class Order
+class OrderLine
+class Product
+Order "1" *-- "0..*" OrderLine : owns
+OrderLine "0..*" --> "1" Product : references
+note bottom of Order
+  Draft Orders may be empty.
+  Deleting an Order removes its lines.
+end note
+note bottom of Product
+  Product survives Order deletion.
+end note
+@enduml

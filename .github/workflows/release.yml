@@ -10,6 +10,8 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   release:
     name: Version
+    # Fork source pushes do not opt in to upstream release automation.
+    if: github.repository == 'mattpocock/skills'
     runs-on: ubuntu-latest
     permissions:
       contents: write

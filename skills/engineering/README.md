@@ -20,6 +20,8 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 
 ## Model-invoked
 
+- **[uml](./uml/SKILL.md)**: Make shared understanding testable with UML views, inspected local previews, and accepted-diagram maintenance.
+
 Model- or user-reachable (rich trigger phrasing so the model can reach for them).
 
 - **[prototype](./prototype/SKILL.md)**: Build a throwaway prototype to answer a design question: a single shareable HTML file for state/logic, or several toggleable UI variations.

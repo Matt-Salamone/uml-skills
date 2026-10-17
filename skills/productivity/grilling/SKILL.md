@@ -7,6 +7,8 @@ Interview the user relentlessly until you reach a shared understanding. Map this
 
 Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled: the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. Then wait for the user's answers before the next round.
 
+When discussion establishes meaningful relationships, behavior, or structure relevant to a decision, including apparent agreement, call the Skill tool with "uml". Supply the current decision, relevant glossary and existing diagrams, and known uncertainties, reusing context from other skills in this discussion. Incorporate its inspected previews and concrete suggested questions into the interview rounds and wait for the human's answers. Keep ownership of the conversation and decision recording here; pass recorded agreement back to UML for artifact handling.
+
 Format a round like so:
 
 ```

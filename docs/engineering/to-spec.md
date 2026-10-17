@@ -2,7 +2,7 @@
 
 `to-spec` turns the conversation you have just had into a **[spec](https://www.aihero.dev/ai-coding-dictionary/spec)**, and publishes it to your issue tracker as a single issue.
 
-It does not interview you. When you reach for it, the deciding is already done. So it synthesises what is known (from the thread, the codebase, your `GLOSSARY.md` and ADRs) and does not start a new round of questions. The spec records decisions you already made. It is not a place to make new ones.
+It synthesises what is known from the thread, codebase, `GLOSSARY.md`, and ADRs without starting a fresh interview. This UML-enabled fork adds one targeted exception: when a diagram exposes an unresolved assumption, finalization pauses for your clarification. The existing seam confirmation remains. The spec records decisions you made, rather than silently filling gaps.
 
 ## When to reach for it
 
@@ -25,7 +25,7 @@ Reach for it when the build is too big for one agent [session](https://www.aiher
 
 The spec exists because context windows end. You settled many things while [grilling](https://www.aihero.dev/ai-coding-dictionary/grilling): the shape of the solution, the choices you argued through, and what you deliberately refused. All of that is in one conversation that you are about to clear. The spec keeps it.
 
-So the spec does not validate or decide anything. It records what you decided, in your project's own vocabulary, so a fresh session can pick up the work without you explaining it again. If the spec states something you never said, that is a defect.
+The spec records what you decided, in your project's own vocabulary, so a fresh session can pick up the work without you explaining it again. If it states something you never said, that is a defect. For consequential relationships, behavior, and structure, `/uml` reuses existing diagrams and uncertainties and returns inspected previews, assumptions, and questions. To-spec shows the smallest relevant view and obtains your answer before treating an exposed assumption as settled. Existing decisions elsewhere stay intact, and to-spec retains responsibility for recording them.
 
 ## Seams before prose
 
@@ -34,6 +34,10 @@ Before it writes anything, `to-spec` sketches the **seams** where the feature wi
 Other skills use those agreed seams later. [tdd](https://aihero.dev/skills-tdd) works only at seams you agreed in advance. [code-review](https://aihero.dev/skills-code-review) reviews the diff against the spec, so a seam nobody agreed to shows up as a review finding. Both connections go through this document. That is why you should take the seam conversation seriously here, and not leave it for implementation.
 
 ## Common questions
+
+**Does the UML addition reopen the whole interview?**
+
+No. It asks for clarification of the specific unresolved assumption exposed by a diagram, then resumes synthesis. Diagram handling belongs to UML; the conversation and spec still belong to to-spec.
 
 **Where did `/to-prd` go?**
 It is this skill, renamed in v1.1. "Spec" is now the one term used throughout, and the old `to-prd` slug no longer works, so reinstall under the new name. The old vocabulary is replaced by the pair *spec* and *tickets*. The spec is the destination and the decisions that fix it. The [tickets](https://www.aihero.dev/ai-coding-dictionary/ticket) are the steps that get there. If you change direction, delete the unfinished tickets and keep the spec.
@@ -64,7 +68,7 @@ A tracker issue may not return a very large spec in full, and there is no local 
 
 ## It's working if
 
-- It starts writing instead of asking you a new round of questions.
+- It synthesises prior decisions, pausing only for seam confirmation or targeted clarification of an unresolved diagram assumption.
 - It shows you the seams before it writes, and proposes as few as it can.
 - It uses your project's nouns, not generic product-management boilerplate.
 - You remember making every decision in it. It invented nothing to fill a section.

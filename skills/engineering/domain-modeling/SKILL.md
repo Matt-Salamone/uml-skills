@@ -53,6 +53,8 @@ When the user uses vague or overloaded terms, propose a precise canonical term. 
 
 When domain relationships are being discussed, stress-test them with specific scenarios. Invent scenarios that probe edge cases and force the user to be precise about the boundaries between concepts.
 
+When discussion establishes meaningful concepts and relationships, behavior, or structure relevant to a decision, including apparent agreement, call the Skill tool with "uml" to check the model. Supply the current decision, relevant glossary and existing diagrams, and known uncertainties, reusing the discussion's context. Use its inspected previews, assumptions, and suggested questions in the scenarios. Keep conversation, glossary, and decision recording here; pass recorded agreement back to UML for artifact handling.
+
 ### Cross-reference with code
 
 When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible. Which is right?"

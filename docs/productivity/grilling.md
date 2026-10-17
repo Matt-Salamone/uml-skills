@@ -6,9 +6,11 @@ It does not ask one question at a time, and it does not ask everything at once. 
 
 ## When to reach for it
 
+In this UML-enabled fork, meaningful relationships, behavior, or structure trigger `/uml`, even when everyone appears to agree. Inspected previews and their concrete questions become part of the rounds. Grilling still owns the interview, waits for your answers, and records decisions; UML handles diagrams according to that agreement. Existing diagrams and uncertainties carry across discussion skills.
+
 Type `/grilling`, or the [agent](https://www.aihero.dev/ai-coding-dictionary/agent) reaches for it on its own when a task fits. It is the only [skill](https://www.aihero.dev/ai-coding-dictionary/skill) in the grilling family that is model-invoked, so you rarely type it. Usually a skill you *did* type runs it for you.
 
-Typing `/grilling` directly gets you the plain interview and nothing else. Where you want something more than that:
+Typing `/grilling` directly gets you the interview, including UML views when consequential relationships need testing. Where you want a broader workflow:
 
 | What you have | Reach for |
 | --- | --- |

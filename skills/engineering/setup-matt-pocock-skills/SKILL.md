@@ -1,6 +1,6 @@
 ---
 name: setup-matt-pocock-skills
-description: "Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills."
+description: "Configure this repo's issue tracker, triage labels, and domain docs, and offer local UML rendering configuration. Run once before first use of the engineering skills."
 disable-model-invocation: true
 ---
 
@@ -11,6 +11,7 @@ Scaffold the per-repo configuration that the engineering skills assume:
 - **Issue tracker**: where issues live (GitHub by default; local markdown is also supported out of the box)
 - **Triage labels**: the strings used for the five canonical triage roles
 - **Domain docs**: where `GLOSSARY.md` and ADRs live, and the consumer rules for reading them
+- **UML rendering** (optional): a working local renderer and reproducible invocation
 
 This is a prompt-driven skill, not a deterministic script. Explore, present what you found, confirm with the user, then write.
 
@@ -25,6 +26,7 @@ Look at the current repo to understand its starting state. Read whatever exists;
 - `GLOSSARY.md` and `GLOSSARY-MAP.md` at the repo root
 - `docs/adr/` and any `src/*/docs/adr/` directories
 - `docs/agents/`: does this skill's prior output already exist?
+- Existing `docs/agents/uml-rendering.md`, local PlantUML commands or JAR paths, Java, and any configured layout engine. Inspect configuration without treating it as proof that rendering works.
 - `.scratch/`: a sign that a local-markdown issue tracker convention is already in use
 - Is the `triage` skill installed? (a `triage` skill folder alongside this one, or `triage` in your available skills.) This decides whether Section B runs at all.
 - Monorepo signals: a `pnpm-workspace.yaml`, a `workspaces` field in `package.json`, or a populated `packages/*` with its own `src/`. These are present only in a genuinely large multi-package repo; their absence means single-context, which is almost every repo.
@@ -60,12 +62,17 @@ The defaults are the five canonical roles, each label string equal to its name: 
 
 Offer **multi-context** (a root `GLOSSARY-MAP.md` pointing to per-context `GLOSSARY.md` files) only when exploration found monorepo signals. Then confirm which layout they want.
 
+**Section D: Local UML rendering.** Offer to configure local rendering, recommending reuse of a working local setup. Offer a reproducible local CLI baseline if none exists, or let the user defer. Call the Skill tool with "uml" for its authoritative rendering guidance, supplying the setup context, discovered configuration, and a temporary probe question. Use its inspected probe to establish what works; keep failed or deferred setup visibly pending. Any prerequisite tooling installation is a separate authorized action, not an assumption of this setup step. External rendering requires the environment's authorization under UML's rules.
+
+When the user chooses configuration, draft `docs/agents/uml-rendering.md` using [uml-rendering.md](./uml-rendering.md). Record local command/JAR paths, versions, engine, SVG/PNG commands, and probe result. Keep machine-specific paths clearly marked for other team members to adapt. Deferred configuration leaves the rest of setup usable; UML checks rendering on every invocation even without setup.
+
 ### 3. Confirm and edit
 
 Show the user a draft of:
 
 - The `## Agent skills` block to add to whichever of `CLAUDE.md` / `AGENTS.md` is being edited (see step 4 for selection rules)
 - The contents of `docs/agents/issue-tracker.md`, `docs/agents/domain.md`, and `docs/agents/triage-labels.md` (the last only when `triage` is installed)
+- `docs/agents/uml-rendering.md` and its instruction-file pointer, only when local rendering configuration was chosen
 
 Let them edit before writing.
 
@@ -101,6 +108,8 @@ The block:
 
 Include the `### Triage labels` sub-block, and write `docs/agents/triage-labels.md`, only when `triage` is installed and Section B ran. When it isn't, both are omitted.
 
+When Section D selected local rendering configuration, also add `### UML rendering` with a one-line pointer to `docs/agents/uml-rendering.md` and write that file from the confirmed draft. Preserve existing rendering configuration if the user deferred changes.
+
 When Section B ran on GitHub or GitLab, create each configured label the tracker lacks (`gh label create` / `glab label create`).
 
 Then write the docs files using the seed templates in this skill folder as a starting point:
@@ -110,9 +119,12 @@ Then write the docs files using the seed templates in this skill folder as a sta
 - [issue-tracker-local.md](./issue-tracker-local.md): local-markdown issue tracker
 - [triage-labels.md](./triage-labels.md): label mapping (only if `triage` is installed)
 - [domain.md](./domain.md): domain doc consumer rules + layout
+- [uml-rendering.md](./uml-rendering.md): optional local rendering configuration, only when chosen
 
 For "other" issue trackers, write `docs/agents/issue-tracker.md` from scratch using the user's description.
 
 ### 5. Done
 
 Tell the user the setup is complete and which engineering skills will now read from these files. Mention they can edit `docs/agents/*.md` directly later; re-running this skill is only necessary if they want to switch issue trackers or restart from scratch.
+
+Report whether local UML rendering was verified, failed, or deferred. Remind them that UML checks availability on each invocation; a failed or deferred renderer blocks only decisions requiring a visual preview.

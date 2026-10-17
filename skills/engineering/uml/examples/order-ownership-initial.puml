@@ -1,0 +1,14 @@
+@startuml
+' Supporting document: ../references/examples.md#domain-relationships-who-owns-a-product
+' Scope: Order/Product ownership hypothesis. Designation: proposed-design, teaching only.
+!pragma layout smetana
+title Initial hypothesis: Order owns Product
+hide empty members
+class Order
+class Product
+Order "1" *-- "1..*" Product : owns
+note bottom of Product
+  Assumption: Product belongs to one Order
+  and shares its lifetime. Is that intended?
+end note
+@enduml
