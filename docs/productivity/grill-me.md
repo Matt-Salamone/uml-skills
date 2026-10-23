@@ -39,6 +39,7 @@ Sessions grow too long when you try to talk through an ungrillable question. The
 ## It's working if
 
 - You disagree with something. A session with no pushback from you is a session you didn't need.
+- Each turn shows estimated progress and the major topics of every remaining round before the questions, with an explanation when the forecast changes.
 - Questions arrive in a few rounds, not one at a time for a long time, and later rounds clearly build on what you said earlier.
 - You end up somewhere you didn't expect, because a question showed you a decision you had been making without noticing.
 - At the end you could defend each choice to someone who wasn't there.
@@ -46,7 +47,9 @@ Sessions grow too long when you try to talk through an ungrillable question. The
 ## Common questions
 
 **How many questions should I expect, and how do I know when it ends?**
-Count rounds, not questions. Forty-six questions across four rounds is an ordinary session. It ends when the frontier is empty: it has visited every branch, and nothing is left as an unstated assumption.
+Each turn opens with an estimated progress bar, the number of completed rounds, and how many rounds remain, including the current one. It lists the major topics expected in each remaining round. Unexpected answers can add dependencies or reopen decisions, so the estimate and bar can move backward; the agent explains revisions rather than treating the forecast as a cap. Progress stays visible at the top of the response alongside the questions, without opening tool activity.
+
+Count rounds, not questions. A round is completed when its questions have been answered, even if that takes several turns. It ends when the frontier is empty: it has visited every branch, and nothing is left as an unstated assumption. Zero remaining rounds still leaves your shared-understanding confirmation pending.
 
 **It asked me two hundred questions. What went wrong?**
 Usually the scope was too large. Ask the agent to break the work into smaller pieces first, then grill each one. Very long sessions also drift into the **[dumb zone](https://www.aihero.dev/ai-coding-dictionary/smart-zone)**, where the [context window](https://www.aihero.dev/ai-coding-dictionary/context-window) is full enough that the questions get worse.

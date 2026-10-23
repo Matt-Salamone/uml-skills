@@ -9,9 +9,19 @@ Work the tree in **rounds**. The **frontier** is every decision whose prerequisi
 
 When discussion establishes meaningful relationships, behavior, or structure relevant to a decision, including apparent agreement, call the Skill tool with "uml". Supply the current decision, relevant glossary and existing diagrams, and known uncertainties, reusing context from other skills in this discussion. Incorporate its inspected previews and concrete suggested questions into the interview rounds and wait for the human's answers. When a round uses a diagram, embed its inspected preview in the same final response as the questions that reference it. Make those references explicit so the user can answer without opening tool activity or earlier commentary. Keep ownership of the conversation and decision recording here; pass recorded agreement back to UML for artifact handling.
 
+Start every assistant turn during active grilling with a compact **progress forecast**, using the latest answers to update it. Put the forecast at the top of the final response, before questions, diagrams, or other discussion; if commentary opens the turn, show it there too so progress is visible immediately and survives collapsed tool activity.
+
+Show a ten-cell text progress bar, the number of fully answered rounds, and an estimated count of remaining rounds **including the current round**. Fill the bar in proportion to completed rounds divided by completed plus estimated remaining rounds. Count answered rounds, not messages: follow-up turns on a partially answered round do not complete another round. Track this in the conversation without creating progress files.
+
+List the major topics of **each** estimated remaining round in order, marking the first as the current round. Later topics are a provisional roadmap, not settled decisions or permission to ask dependent questions early. Label the count and roadmap as estimates that may change with unexpected answers, new dependencies, or reopened decisions. When the estimate or roadmap changes, briefly explain why. Recompute honestly even if the bar moves backward; the forecast is not a round cap or a reason to truncate the frontier. When the frontier is empty, show a full bar, zero rounds remaining, and shared-understanding confirmation pending until the user confirms.
+
 Format a round like so:
 
 ```
+Progress (estimate): [###-------] 2 rounds completed; ~4 remaining, including this round.
+Remaining topics: this round: constraints; next: alternatives; then: failure handling; then: final review.
+This estimate may change as answers reveal new dependencies or reopen decisions.
+
 ❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
 
 ➡️ <your recommended answer>

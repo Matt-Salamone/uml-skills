@@ -22,6 +22,10 @@ Typing `/grilling` directly gets you the interview, including UML views when con
 
 ## The round, the frontier, and who decides
 
+Every turn opens with a progress forecast: a text bar, completed rounds, estimated remaining rounds including the current one, and the major topics of each remaining round. The forecast appears at the top of the final response, and in opening commentary when used. It stays visible without opening tool activity. Later topics are provisional, so the roadmap does not move dependent questions into the current frontier.
+
+The agent updates the estimate from your answers and explains changes. New dependencies, unexpected answers, or reopened decisions can increase the remaining count and move the bar backward. A partially answered round stays in progress across turns; messages are not counted as rounds. The forecast does not cap the interview. At zero remaining rounds, the bar is full but your confirmation of shared understanding is still required.
+
 The skill rests on three ideas.
 
 The **design tree** is the model of the subject: decisions with decisions hanging off them. The **frontier** is the set of decisions whose prerequisites are all settled: the only questions the agent can ask yet. A **round** is one frontier, asked in full and answered in full.
@@ -69,13 +73,14 @@ That is a bug in the run, and it is the reason the skill's text separates facts 
 No, and a cap is out of scope on purpose. Some plans need three questions and some need fifty; a fixed ceiling either truncates the hard case or feels arbitrary on the easy one. The intended control is plain language. Tell it to wrap up, or stop and accept the plan where it stands. If a session is running very long, the cause is usually that the scope was too big; break the work up and grill the pieces.
 
 **I installed `grill-me` on its own and nothing happens.**
-`grill-me` is a one-line skill whose whole body is "run a `/grilling` session", so it needs this skill installed too. The same is true of `grill-with-docs`, which additionally needs [domain-modeling](https://aihero.dev/skills-domain-modeling). Installing the whole set avoids the problem; installing selectively means installing the primitives as well.
+`grill-me` delegates the interview and its progress forecast to `/grilling`, so it needs this skill installed too. The same is true of `grill-with-docs`, which additionally needs [domain-modeling](https://aihero.dev/skills-domain-modeling). Installing the whole set avoids the problem; installing selectively means installing the primitives as well.
 
 **`grill-with-docs` ran, but it never loaded `grilling`.**
 This is a real bug, still unfixed, and users report it across [harnesses](https://www.aihero.dev/ai-coding-dictionary/harness) and models. A skill that names another skill does not reliably cause that skill to load, and `grill-with-docs` names two. The sign is a session that asks everything at once with no recommendations. That means the model is improvising an interview rather than running this one. Asking the agent directly whether it loaded `grilling` and `domain-modeling` usually recovers it.
 
 ## It's working if
 
+- Each turn opens with estimated progress and the major topics of each remaining round; revisions are explained and the forecast is visible alongside the questions.
 - A round arrives as a numbered list, each question with its recommendation on a separate `➡️` line, and you can answer the whole round by number.
 - Nothing in a round needs another question in the same round answered first.
 - Later rounds ask things the first round could not have asked.
