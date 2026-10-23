@@ -40,7 +40,7 @@ Only the explicitly identified versions included in that agreement. Silence and 
 
 ## It's working if
 
-- The preview comes with a specific question you can answer or correct.
+- The inspected preview appears in the final response alongside a specific question about a relationship, transition, or assumption you can answer or correct, without opening tool activity or earlier commentary.
 - Ownership, multiplicities, guards, and dependencies that affect the decision are visible.
 - Your answer changes the existing model, and related views stay compatible.
 - Proposed designs and current implementation remain distinguishable, with evidence for implementation claims.

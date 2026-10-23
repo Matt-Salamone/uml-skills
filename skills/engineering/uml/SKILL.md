@@ -40,7 +40,7 @@ Preserve and mark failed source **unrendered**, expose the failure, and offer a 
 
 ## 4. Expose assumptions and return to the caller
 
-Present inspected previews with the question they help resolve. Identify consequential assumptions, contradictions, and concrete suggested questions, with a recommendation where useful. Distinguish proposed interpretations from human answers. Return the current source/preview locations and unresolved uncertainties so another skill can reuse them.
+Embed each inspected preview needed for the current decision in the final user-facing response alongside the question it helps resolve. Tool output, inspection calls, and collapsed progress commentary do not count as presentation. Explicitly identify which relationship, transition, or assumption the user should examine. Identify consequential assumptions, contradictions, and concrete suggested questions, with a recommendation where useful. Distinguish proposed interpretations from human answers. Return the current source/preview locations and unresolved uncertainties so another skill can reuse them.
 
 The caller incorporates questions into its workflow, waits for human clarification, and records decisions. With no caller, do that conversational work here. Agreement on a surrounding decision accepts only the explicitly identified diagram versions included in that agreement; silence or a topic change is not acceptance. Follow an existing team approval process without adding a mandatory one.
 
