@@ -100,6 +100,14 @@ Out-of-scope work never graduates (the frontier stops at the destination), so it
 
 Ruling something out of scope is a scoping act, not a step on the route. When a ticket that already exists turns out to sit past the destination (mis-scoped in while charting, or exposed by a resolution), **close it** (a closed ticket is unambiguously off the frontier) and leave one line in the **Out of scope** section: the gist plus why it's out of scope, linking the closed ticket. It stays out of **Decisions so far**, which records the route actually walked; a scope boundary isn't a step on it.
 
+## Commit and push completed tickets
+
+After completing any ticket, including research tickets and closures as out of scope, **commit and push the ticket's repository changes before reporting completion**. Finish the resolution, map updates, and any related glossary, decision, or accepted-asset changes first. Stage only changes belonging to the ticket, preserving unrelated work and concurrent sessions' edits. This is part of ticket completion and needs no separate reminder.
+
+Name the ticket in the commit message, push to the repository's configured remote and appropriate branch, and verify that each pushed commit exists on the remote. Keep research findings on their designated `research/<name>` branch and map updates on the map's branch; preserve the research no-PR/no-merge rule. Report the pushed commit and branch.
+
+If there is no Git repository, no configured remote, no file changes, or a blocked push, report that specific limitation instead of silently skipping this step or claiming synchronization. Leave repository creation and remote selection to the user when neither is established.
+
 ## Invocation
 
 Two modes. Either way, **never resolve more than one ticket per session**, with the exception of research tickets.
@@ -124,5 +132,6 @@ User invokes with a map (URL or number). A ticket is **optional**: without one, 
 3. Resolve it as the type its `wayfinder:<type>` label names (see [Ticket Types](#ticket-types)). Read the label, not just the body: the body never states the type. **Zoom as needed**: fetch the full body of any related or closed ticket on demand; call the Skill tool for whichever skills the `## Notes` block names. If in doubt, call the Skill tool twice, for "grilling" and "domain-modeling".
 4. Record the resolution: post the answer as a **resolution comment**, **close** the issue, and **append a context pointer** to the map's Decisions-so-far.
 5. Add newly-surfaced tickets (create-then-wire); graduate any fog the answer has made specifiable, clearing each graduated patch from **Not yet specified** so it lives only as its new ticket. If the answer reveals that a ticket (this one or another) sits beyond the destination, **rule it out of scope** rather than resolving it on the route. If the decision invalidates other parts of the map, update or delete those tickets.
+6. **Commit and push** the completed ticket's changes using [Commit and push completed tickets](#commit-and-push-completed-tickets).
 
 The user may run unblocked tickets in parallel, so expect other sessions to be editing the tracker concurrently.
