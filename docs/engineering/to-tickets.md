@@ -4,6 +4,8 @@
 
 Every ticket is a **tracer bullet**: a narrow but complete path through every layer of the change (schema, API, UI, tests) that you can demo on its own as soon as it lands. This is what makes the skill different from the obvious way to split work, which is to cut one layer at a time and integrate at the end. It also sizes each ticket to fit in a single fresh [context window](https://www.aihero.dev/ai-coding-dictionary/context-window), because a [session](https://www.aihero.dev/ai-coding-dictionary/session) that has never seen your spec will pick the ticket up.
 
+Before you approve the breakdown, [uml](https://aihero.dev/skills-uml) presents an inspected component diagram. Each ticket has an explicit path through the relevant components and an independently verifiable outcome. Other helpful diagram types are welcome alongside the component diagram, including sequence or state views. The published tickets link to the agreed source, preview, and version so a fresh implementation session can recover the decision.
+
 ## When to reach for it
 
 You invoke this by typing `/to-tickets`. The [agent](https://www.aihero.dev/ai-coding-dictionary/agent) won't reach for it on its own.
@@ -55,6 +57,10 @@ Where even the batches can't stay green alone, they share an integration branch 
 
 ## Common questions
 
+**Do we need a new diagram for every red-green cycle?**
+
+Reuse an agreed view while it covers the decision. Changed scope, interfaces, dependencies, or seams need an updated view and targeted agreement. Other useful diagram types are welcome alongside the required component view. If rendering fails, unrelated work continues while visually dependent approval waits for an inspected preview.
+
 **It produced twelve tickets for a three-line change.**
 Over-decomposition is the most reported problem with this skill, and many users see it. The [model](https://www.aihero.dev/ai-coding-dictionary/model) defaults to atomic units and loses the grouping that would make them meaningful. The quiz step is where you fix this. Ask it to merge tickets, and it will. There is also a lower limit. If the whole change fits in one context window, you don't need this skill at all. Go straight to [implement](https://aihero.dev/skills-implement).
 
@@ -80,6 +86,8 @@ The template asks for criteria and says nothing about whether they can fail, so 
 The skill stops at the artifact, and there is no auto-dispatch mode. Dispatch is manual: look at the board, count the tickets with no open blockers, and open that many agent sessions. Give each ticket a fresh context, and clear between them. [implement](https://aihero.dev/skills-implement) does not reliably close or check off the ticket when it finishes, on GitHub or in local markdown, so you update the ticket's state yourself.
 
 ## It's working if
+
+- At the relevant approval checkpoint, you can inspect the component view, locate the ticket path or test seam, and use additional helpful views to resolve behavioral questions. Existing valid agreement carries forward.
 
 - Every ticket has an answer to "what can I demo when this is done?", and the answer is behaviour, not a layer.
 - The list comes back to you numbered, with a "Blocked by" line on each, before anything is published.

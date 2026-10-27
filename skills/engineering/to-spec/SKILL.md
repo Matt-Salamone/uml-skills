@@ -14,7 +14,9 @@ The issue tracker and triage label vocabulary should have been provided to you. 
 
 2. Sketch out the seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
 
-Check with the user that these seams match their expectations.
+Before confirming these seams, call the Skill tool with "uml" for the tracer-bullet approval checkpoint. Supply the feature scope, proposed seams, and existing diagrams. Present the required inspected component view with the seam proposal; reuse an agreed view when it still covers the decision. Other helpful diagram types are welcome in addition to the component view. Include complementary views when they clarify behavior or expose assumptions. Follow UML recovery if rendering is unavailable and defer the visually dependent confirmation.
+
+Check with the user that these seams match their expectations, identifying the diagram versions included in that agreement. Preserve the accepted source, previews, and version references with the spec so downstream tickets can reuse them.
 
 When synthesis establishes meaningful relationships, behavior, or structure relevant to a decision, including apparent agreement, call the Skill tool with "uml". Supply the current decision, relevant glossary and existing diagrams, and known uncertainties, reusing context from earlier discussion skills. Use its inspected previews, assumptions, and suggested questions. If a diagram exposes an unresolved assumption, pause finalization, show the smallest relevant view, identify the specific assumption, and obtain the human's clarification before treating it as settled. Preserve existing decisions elsewhere. Keep conversation and spec/decision recording here; pass recorded agreement back to UML for artifact handling.
 
@@ -65,6 +67,10 @@ A list of testing decisions that were made. Include:
 - A description of what makes a good test (only test external behavior, not implementation details)
 - Which modules will be tested
 - Prior art for the tests (i.e. similar types of tests in the codebase)
+
+## Diagrams
+
+Durable links to accepted component source and preview, their agreed version identity, scope, and test seams. Include any helpful complementary views. Diagram artifact links are an exception to the file-path restriction above. Use tracker-accessible attachments or repository links for a real tracker, or saved artifacts linked from a local spec; temporary paths cannot carry agreement into a fresh session.
 
 ## Out of Scope
 

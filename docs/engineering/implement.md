@@ -2,7 +2,9 @@
 
 `implement` builds work that has already been decided. You point it at a [ticket](https://www.aihero.dev/ai-coding-dictionary/ticket), a [spec](https://www.aihero.dev/ai-coding-dictionary/spec), or the plan you just agreed in the conversation, and it writes the code, drives [tdd](https://aihero.dev/skills-tdd) at the seams, typechecks as it goes, runs [code-review](https://aihero.dev/skills-code-review) at the end, and commits to the current branch.
 
-It never reopens the plan. There is no interview, no clarifying round, no proposal of a different approach. Whatever was settled upstream is the input, and the skill's whole job is to turn that into a commit. That is what separates it from typing "build this" at a fresh [agent](https://www.aihero.dev/ai-coding-dictionary/agent), which often redesigns the work while it builds it.
+It implements the settled plan. Clarification is limited to consequential discrepancies exposed by diagram recovery; unaffected decisions remain settled. That is what separates it from typing "build this" at a fresh [agent](https://www.aihero.dev/ai-coding-dictionary/agent), which often redesigns the work while it builds it.
+
+Implementation recovers the agreed diagram versions linked from the ticket, spec, or conversation. A missing covering component view or agreement, or a discrepancy affecting scope, interfaces, dependencies, or test seams, triggers [uml](https://aihero.dev/skills-uml) and targeted clarification with a revised component view before the affected work proceeds, including when TDD is unsuitable. Other helpful diagram types are welcome in addition to the component diagram.
 
 ## When to reach for it
 
@@ -75,6 +77,8 @@ Probably not. The ticket is more likely too big. A run does codebase exploration
 The agent resolved `#2` against another numbered list in context, such as a todo file or checklist, rather than the configured tracker. `implement` now fetches a passed reference from the issue tracker and states its title before starting, and asks when the reference is ambiguous. Check that title matches the ticket you meant; passing the issue URL or `owner/repo#2` removes the ambiguity entirely.
 
 ## It's working if
+
+- At the relevant approval checkpoint, you can inspect the component view, locate the ticket path or test seam, and use additional helpful views to resolve behavioral questions. Existing valid agreement carries forward.
 
 - The session opens by reading the ticket or spec and restating what it will build, rather than asking you what to build.
 - You can see an actual `tdd` Skill tool call in the trace, not just tests appearing in the diff.

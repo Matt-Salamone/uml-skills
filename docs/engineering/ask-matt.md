@@ -6,6 +6,8 @@ In this UML-enabled fork, the map also includes `/uml` beneath the discussion fl
 
 It recommends and stops. It does not grill, write a [spec](https://www.aihero.dev/ai-coding-dictionary/spec), open a file or fire the skill it just named; what you get back is the next thing to type, and you type it. It is also a hand-written map of the skills in this repo rather than a scan of what you have installed, so it will not route you over your own skills or another author's.
 
+The tracer-bullet flow has visual approval checkpoints: [to-spec](https://aihero.dev/skills-to-spec) and [tdd](https://aihero.dev/skills-tdd) require an inspected component diagram for seam confirmation, and [to-tickets](https://aihero.dev/skills-to-tickets) requires one for breakdown approval. Valid agreed views are reused. Other helpful diagram types are welcome alongside the component view; [implement](https://aihero.dev/skills-implement) recovers the agreed views and seeks targeted clarification for consequential discrepancies.
+
 ## When to reach for it
 
 You invoke this by typing `/ask-matt`; the agent won't reach for it on its own.

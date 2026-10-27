@@ -19,9 +19,9 @@ See [tests.md](tests.md) for examples and [mocking.md](mocking.md) for mocking g
 
 A **seam** is the public boundary you test at: the interface where you observe behavior without reaching inside. Tests live at seams, never against internals.
 
-**Test only at pre-agreed seams.** Before writing any test, write down the seams under test and confirm them with the user. No test is written at an unconfirmed seam. You can't test everything, so agreeing the seams up front is how testing effort lands on the critical paths and complex logic instead of every edge case.
+**Test only at pre-agreed seams.** Before writing any test, recover the agreed seams and diagram versions from the spec, ticket, or conversation. Call the Skill tool with "uml" for the tracer-bullet approval checkpoint: reuse an inspected, agreed component view when it covers the intended work. If agreement or a covering view is missing, or scope, interfaces, dependencies, or seams change, present the required inspected component view with the seam proposal and confirm the affected decision with the user before writing tests there. This also applies to standalone TDD without a spec. Other helpful diagram types are welcome alongside the component view, especially for interactions and lifecycle rules. Follow UML recovery when rendering is unavailable and defer visually dependent confirmation. Record agreed diagram versions with the seam decision; subsequent red-green cycles reuse valid agreement. You can't test everything, so agreeing the seams up front is how testing effort lands on the critical paths and complex logic instead of every edge case.
 
-Ask: "What's the public interface, and which seams should we test?" Give each proposed seam a one-line note on what it catches and what it misses.
+When confirmation is needed, ask: "What's the public interface, and which seams should we test?" Give each proposed seam a one-line note on what it catches and what it misses.
 
 When the shape of that interface is itself in question (how deep the module is, where the seam belongs, what the interface should expose), call the Skill tool with "codebase-design" for the vocabulary. It is the shared source of the module, interface, depth, seam, adapter, leverage and locality terms, and it is a reference to consult, not a session to run.
 

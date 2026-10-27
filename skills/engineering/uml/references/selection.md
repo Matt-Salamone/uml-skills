@@ -1,6 +1,6 @@
 # Selection and refinement
 
-Read when choosing or refining a view. Use the question, rather than a fixed diagram quota, to choose notation. All UML diagram types and constructs remain available; these are starting points:
+Read when choosing or refining a view. At tracer-bullet approval checkpoints, include the component view required by SKILL.md. Use the question to choose additional helpful views and to select views outside those checkpoints. All UML diagram types and constructs remain available; these are starting points:
 
 - Concepts and relationships: class or object views. Include consequential multiplicities, ownership, identity, and lifecycle constraints. An association does not automatically mean composition; shared aggregation and composition are different claims.
 - Interaction order and responsibility: sequence or communication views. Show consequential messages, synchronous/asynchronous behavior, alternatives, loops, and failures.

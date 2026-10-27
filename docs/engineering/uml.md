@@ -4,6 +4,8 @@
 
 The conversation stays with the calling skill. UML supplies inspected previews and handles diagram artifacts according to recorded agreement; a successful render does not settle a design decision. It assumes a UML-trained audience and explains notation when asked.
 
+At tracer-bullet approval checkpoints, an inspected component diagram is required: ticket breakdown approval in [to-tickets](https://aihero.dev/skills-to-tickets), and testing-seam confirmation in [to-spec](https://aihero.dev/skills-to-spec) or [tdd](https://aihero.dev/skills-tdd). It shows the participating components, interfaces, dependency directions, and test seams. Other helpful diagram types are welcome in addition: sequence, state, activity, or any view that clarifies the decision. Other UML discussions retain question-driven selection.
+
 ## When to reach for it
 
 Type `/uml`, or the [agent](https://www.aihero.dev/ai-coding-dictionary/agent) reaches for it automatically when a task fits.
@@ -26,6 +28,10 @@ Exploratory sketches stay temporary. Agreement on a decision accepts the explici
 
 ## Common questions
 
+**Do we need a new diagram for every red-green cycle?**
+
+Reuse an agreed view while it covers the decision. Changed scope, interfaces, dependencies, or seams need an updated view and targeted agreement. Other useful diagram types are welcome alongside the required component view. If rendering fails, unrelated work continues while visually dependent approval waits for an inspected preview.
+
 **Will it draw even if we already agree?**
 
 Yes. Apparent agreement can hide different interpretations. The diagram tests a concrete relationship or behavior; you can correct it or redirect the discussion.
@@ -40,6 +46,8 @@ Only the explicitly identified versions included in that agreement. Silence and 
 
 ## It's working if
 
+- At the relevant approval checkpoint, you can inspect the component view, locate the ticket path or test seam, and use additional helpful views to resolve behavioral questions. Existing valid agreement carries forward.
+
 - The inspected preview appears in the final response alongside a specific question about a relationship, transition, or assumption you can answer or correct, without opening tool activity or earlier commentary.
 - Ownership, multiplicities, guards, and dependencies that affect the decision are visible.
 - Your answer changes the existing model, and related views stay compatible.
@@ -50,4 +58,4 @@ These are quality signals. UML's benefit remains a working assumption to revisit
 
 ## Where it fits
 
-UML is a reach-for-it-anytime shared modeling discipline beneath grilling, domain-modeling, codebase-design, and [to-spec](https://aihero.dev/skills-to-spec). Wayfinder and grill-with-docs inherit it through their discussion skills. The caller keeps conversation and decision ownership; to-spec pauses for targeted clarification if a diagram exposes an unresolved assumption. [Ask-matt](https://aihero.dev/skills-ask-matt) maps the broader flows.
+UML is a reach-for-it-anytime shared modeling discipline beneath grilling, domain-modeling, codebase-design, [to-spec](https://aihero.dev/skills-to-spec), [to-tickets](https://aihero.dev/skills-to-tickets), and [tdd](https://aihero.dev/skills-tdd). [Implement](https://aihero.dev/skills-implement) uses it to clarify missing or discrepant agreement. Wayfinder and grill-with-docs inherit it through their discussion skills. The caller keeps conversation and decision ownership; to-spec pauses for targeted clarification if a diagram exposes an unresolved assumption. [Ask-matt](https://aihero.dev/skills-ask-matt) maps the broader flows.

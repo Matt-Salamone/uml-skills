@@ -15,6 +15,14 @@ Introduce diagrams proactively whenever meaningful relationships, behavior, or s
 
 On **every invocation**, check local rendering availability, including when setup has already run. Read [rendering.md](references/rendering.md) to prepare previews, probe the configured renderer, and follow its recovery procedure if unavailable. A saved configuration is a hint, not evidence that rendering still works.
 
+## Tracer-bullet approval checkpoints
+
+When the caller is preparing user approval of a tracer-bullet breakdown or its testing seams, require an inspected **component diagram** covering the decision before approval. Show the relevant components, provided/required interfaces, dependency directions, affected boundaries, and test seams. Make each ticket's end-to-end path and independently observable outcome explicit in the view or its accompanying explanation. Distinguish structural dependencies from runtime execution order. A single-component change can use a small view of that component and its public seam; include only actual boundaries.
+
+Reuse an agreed view when its scope and meaning still cover the decision. Revise it when scope, interfaces, dependencies, or seams change. Identify the versions covered by the caller's existing approval step; individual red-green cycles reuse that agreement while it remains valid. Apply the rendering recovery and acceptance rules below if a preview is unavailable or an assumption remains unresolved.
+
+Other diagram types are welcome **in addition to the required component view** whenever helpful. Add sequence views for interactions, state views for lifecycle rules, activity views for workflow, or any other useful UML view. A component diagram alone does not establish execution order or end-to-end behavior. Outside these checkpoints, continue choosing views according to the question.
+
 ## 2. Choose and refine useful views
 
 Read [selection.md](references/selection.md) when choosing or refining views, and the relevant case in [examples.md](references/examples.md) for domain relationships, interaction/lifecycle questions, or software structure.

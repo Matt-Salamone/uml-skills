@@ -41,6 +41,8 @@ Give each ticket its **blocking edges**: the other tickets that must complete be
 
 ### 4. Quiz the user
 
+Call the Skill tool with "uml" for the tracer-bullet approval checkpoint. Supply the proposed tickets, blocking edges, testing seams, and existing diagrams. Before requesting approval, present its inspected component view and explain each ticket's end-to-end path and independently verifiable outcome. Reuse a valid agreed view or revise it for changed boundaries. Other helpful diagram types are welcome alongside the required component diagram; use complementary views when interactions, lifecycle, or workflow affect the breakdown. Incorporate unresolved questions into this quiz and identify the diagram versions covered by approval. If rendering is unavailable, follow UML recovery and defer the visually dependent approval while continuing unrelated work.
+
 Present the proposed breakdown as a numbered list. For each ticket, show:
 
 - **Title**: short descriptive name
@@ -56,6 +58,8 @@ Ask the user:
 Iterate until the user approves the breakdown.
 
 ### 5. Publish the tickets to the configured tracker
+
+Publish the approved tickets with references to the agreed diagram versions. Preserve accepted source and previews through UML's artifact lifecycle. Use durable tracker-accessible attachments or repository links on a real tracker, and relative links to saved artifacts for local tickets; temporary paths are insufficient for a fresh session. A shared view can cover multiple tickets if each ticket identifies its path, scope, and verification seam. Diagram artifact links are an exception to the file-path restriction below.
 
 Publish the approved tickets. **How** depends on the tracker `/setup-matt-pocock-skills` configured; the tickets are the same either way, only the shape of the blocking edges changes:
 
@@ -73,6 +77,8 @@ Do NOT close or modify any parent issue.
 **What to build:** the end-to-end behaviour this ticket makes work, from the user's perspective, not a layer-by-layer implementation list.
 
 **Blocked by:** the numbers/titles of the tickets that gate this one, or "None (can start immediately)".
+
+**Diagrams:** links to agreed component source and preview, version identity, this ticket's path and verification seam, and any helpful complementary views.
 
 **Status:** ready-for-agent
 
@@ -95,6 +101,10 @@ The end-to-end behaviour this ticket makes work, from the user's perspective, no
 
 - [ ] Criterion 1
 - [ ] Criterion 2
+
+## Diagrams
+
+Links to agreed component source and preview, version identity, this ticket's path and verification seam, and any helpful complementary views.
 
 ## Blocked by
 

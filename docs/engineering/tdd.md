@@ -4,6 +4,8 @@
 
 It writes no test at a seam you have not agreed to first. Before any test exists, it names the public boundaries it intends to test at and stops for your confirmation. Testing effort is finite, and this step spends it on the critical paths instead of on every edge case. `tdd` is also a **reference**, not a driver. It contains the rules of the loop, and something else (you, or [implement](https://aihero.dev/skills-implement)) runs the [session](https://www.aihero.dev/ai-coding-dictionary/session) that applies them.
 
+Seam agreement includes a required inspected component diagram from [uml](https://aihero.dev/skills-uml). Standalone TDD prepares this view too. Existing agreed diagrams and seams are reused while they cover the work; changes to scope, interfaces, dependencies, or seams receive targeted confirmation. Other helpful diagram types are welcome alongside the component view. Individual red-green cycles reuse valid agreement.
+
 ## When to reach for it
 
 Type `/tdd`, or the [agent](https://www.aihero.dev/ai-coding-dictionary/agent) reaches for it automatically when a task fits: building a feature or fixing a bug test-first, or when you say "red-green-refactor".
@@ -22,7 +24,7 @@ That last row is a real gap. The skill decides *where* the seams go, but nothing
 
 ## Prerequisites
 
-[codebase-design](https://aihero.dev/skills-codebase-design) needs to be installed. `tdd` used to carry its own deep-module and interface-design notes; v1.0 deleted them in favour of the shared skill, and `tdd` now uses its interface-design vocabulary. Nothing else; the skill is [stateless](https://www.aihero.dev/ai-coding-dictionary/stateless) and writes no files of its own.
+[codebase-design](https://aihero.dev/skills-codebase-design) needs to be installed. `tdd` used to carry its own deep-module and interface-design notes; v1.0 deleted them in favour of the shared skill, and `tdd` now uses its interface-design vocabulary. Visual seam confirmation also needs [uml](https://aihero.dev/skills-uml) and a working renderer. Accepted diagram sources and previews stay with the supporting seam decision.
 
 ## The loop, and the seam it runs at
 
@@ -46,13 +48,17 @@ Mocks are for system boundaries only: external APIs, time, randomness, sometimes
 
 ## Common questions
 
+**Do we need a new diagram for every red-green cycle?**
+
+Reuse an agreed view while it covers the decision. Changed scope, interfaces, dependencies, or seams need an updated view and targeted agreement. Other useful diagram types are welcome alongside the required component view. If rendering fails, unrelated work continues while visually dependent approval waits for an inspected preview.
+
 **Why doesn't it refactor? The description says "red-green-refactor".**
 
 Because the refactor step was removed and the description was not. The removal was deliberate. Agents almost never did the step, and keeping implementation and review in separate sessions works better. Whether the result still counts as TDD by the book matters less than whether the loop produces better code. The mismatch between the trigger phrase and the body is filed as [issue #589](https://github.com/mattpocock/skills/issues/589) and is still open, so "red-green-refactor" continues to work as a phrase that fires the skill. What you get is red-green, with refactoring in [code-review](https://aihero.dev/skills-code-review).
 
 **It asked me to choose a test seam and I had no idea which to pick.**
 
-This is the most-reported friction with the skill ([issue #607](https://github.com/mattpocock/skills/issues/607)). The prompt lists candidate seams by name only, with nothing about what each one catches or misses, so you are choosing between labels. There is no fix shipped yet. The practical workaround is to ask the agent for the trade-offs before answering: what does the component-level seam miss that the integration seam catches, and how much slower is it. It is also why the chain agrees seams up front in `to-spec`, where you have the whole feature in view rather than one prompt.
+This is the most-reported friction with the skill ([issue #607](https://github.com/mattpocock/skills/issues/607)). The prompt lists candidate seams by name only, with nothing about what each one catches or misses, so you are choosing between labels. Seam proposals now include a component view and a note on what each seam catches and misses. Ask about any trade-off that remains unclear, such as what a component seam misses that an integration seam catches. It is also why the chain agrees seams up front in `to-spec`, where you have the whole feature in view rather than one prompt.
 
 **It wrote the implementation before the test, even though the skill says red first.**
 
@@ -76,7 +82,9 @@ No. Run against one ticket, it can propose work that belongs to a sibling ticket
 
 ## It's working if
 
-- It stops and names the seams it intends to test at, and waits, before any test file exists.
+- At the relevant approval checkpoint, you can inspect the component view, locate the ticket path or test seam, and use additional helpful views to resolve behavioral questions. Existing valid agreement carries forward.
+
+- Before tests are written, the seams are covered by your agreement and an inspected component view. It waits for confirmation when either is missing or consequentially changed.
 - One test appears, goes red, gets just enough code to pass, and only then does the next test appear, not a batch of tests followed by a batch of code.
 - Test names read as capabilities ("user can checkout with valid cart"), not as internals ("checkout calls paymentService.process").
 - Expected values in assertions are literals you can trace to the spec, not values recomputed the way the code computes them.

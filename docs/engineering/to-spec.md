@@ -4,6 +4,8 @@
 
 It synthesises what is known from the thread, codebase, `GLOSSARY.md`, and ADRs without starting a fresh interview. This UML-enabled fork adds one targeted exception: when a diagram exposes an unresolved assumption, finalization pauses for your clarification. The existing seam confirmation remains. The spec records decisions you made, rather than silently filling gaps.
 
+Seam confirmation includes a required inspected component diagram from [uml](https://aihero.dev/skills-uml), showing the components, interfaces, and proposed test boundaries. Other diagram types are welcome in addition when they clarify interactions, lifecycle, or other behavior. Valid agreed views are reused; accepted sources, previews, and versions stay linked with the spec for downstream tickets.
+
 ## When to reach for it
 
 You invoke this by typing `/to-spec`; the [agent](https://www.aihero.dev/ai-coding-dictionary/agent) won't reach for it on its own.
@@ -34,6 +36,10 @@ Before it writes anything, `to-spec` sketches the **seams** where the feature wi
 Other skills use those agreed seams later. [tdd](https://aihero.dev/skills-tdd) works only at seams you agreed in advance. [code-review](https://aihero.dev/skills-code-review) reviews the diff against the spec, so a seam nobody agreed to shows up as a review finding. Both connections go through this document. That is why you should take the seam conversation seriously here, and not leave it for implementation.
 
 ## Common questions
+
+**Do we need a new diagram for every red-green cycle?**
+
+Reuse an agreed view while it covers the decision. Changed scope, interfaces, dependencies, or seams need an updated view and targeted agreement. Other useful diagram types are welcome alongside the required component view. If rendering fails, unrelated work continues while visually dependent approval waits for an inspected preview.
 
 **Does the UML addition reopen the whole interview?**
 
@@ -67,6 +73,8 @@ No to both. It reads and follows the ADRs for the area it touches, but it does n
 A tracker issue may not return a very large spec in full, and there is no local copy to use instead. To fix this, do not [clear](https://www.aihero.dev/ai-coding-dictionary/clearing) or [compact](https://www.aihero.dev/ai-coding-dictionary/compaction) between `/to-spec` and `/to-tickets`. Run them in the same window, and `/to-tickets` never has to fetch the spec again.
 
 ## It's working if
+
+- At the relevant approval checkpoint, you can inspect the component view, locate the ticket path or test seam, and use additional helpful views to resolve behavioral questions. Existing valid agreement carries forward.
 
 - It synthesises prior decisions, pausing only for seam confirmation or targeted clarification of an unresolved diagram assumption.
 - It shows you the seams before it writes, and proposes as few as it can.
