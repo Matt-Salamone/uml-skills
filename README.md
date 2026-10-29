@@ -12,7 +12,7 @@
 
 ## UML-enabled fork
 
-This is a UML-enabled fork of [mattpocock/skills](https://github.com/mattpocock/skills) at the fixed upstream commit [`49dd158d1076134a641b33efb035946536778336`](https://github.com/mattpocock/skills/commit/49dd158d1076134a641b33efb035946536778336). Upstream names, buckets, invocation and composition conventions, supported installation routes, setup functionality, and MIT notices are retained. The original introduction and install instructions below describe upstream; those commands install upstream, not this fork.
+This is a UML-enabled fork of [mattpocock/skills](https://github.com/mattpocock/skills) at upstream tag [v1.3.2](https://github.com/mattpocock/skills/releases/tag/v1.3.2) ([`d1478fcb140db0b93c0c8df17bcfd311844749d0`](https://github.com/mattpocock/skills/commit/d1478fcb140db0b93c0c8df17bcfd311844749d0)). Upstream names, buckets, invocation and composition conventions, supported installation routes, setup functionality, and MIT notices are retained. The original introduction and install instructions below describe upstream; those commands install upstream, not this fork.
 
 Intentional additions and differences:
 
